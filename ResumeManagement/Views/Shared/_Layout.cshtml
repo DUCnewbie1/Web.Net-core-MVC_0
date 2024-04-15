@@ -7,12 +7,13 @@
     <link rel="icon" type="image/jpg" href="~/Images/logo.jpg">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/CssForLogin.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="~/Images/logo.jpg" class="logo-img" alt="Application logo">
+                <img src="~/Content/Images/logo.jpg" class="logo-img" alt="Application logo">
                 Resume Management
             </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
@@ -24,8 +25,22 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Find a Jobs", "FindJobs", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Page", "Page", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li class="nav-item ml-auto">@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Register", "Register", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+                    @if (Session["UserName"] != null)
+                    {
+                        <li class="nav-item ml-auto">@Html.ActionLink((string)Session["UserName"], "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("DangXuat", "DangXuat", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+                    else
+                    {
+                        <li class="nav-item ml-auto">@Html.ActionLink("Login", "DangNhap", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Register", "Register", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+                    <div id="userPopup" class="user-popup">
+                        <div class="user-popup-content">
+                            <p><strong>@Session["UserName"]</strong></p>
+                            <p>@Html.ActionLink("Đăng xuất", "DangXuat", "Home", new { area = "" }, new { @class = "logout-link" })</p>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>

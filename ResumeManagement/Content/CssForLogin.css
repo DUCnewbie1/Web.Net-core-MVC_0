@@ -1,0 +1,20 @@
+﻿/* Style cho popup */
+.user-popup {
+    position: absolute;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1;
+    display: none;
+}
+
+.user-popup-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style cho liên kết đăng xuất */
+.logout-link {
+    color: red;
+    cursor: pointer;
+}

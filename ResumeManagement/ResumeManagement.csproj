@@ -136,6 +136,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DB_Entities.cs" />
+    <Compile Include="Models\MaHoaPassword.cs" />
     <Compile Include="Models\MyData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -161,6 +162,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\CssForLogin.css" />
+    <Content Include="Content\JavaScriptForLogin.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\StyleForIndex.css" />
     <Content Include="favicon.ico" />
@@ -222,10 +225,11 @@
     <Content Include="Views\TinTuyenDung\Delete.cshtml" />
     <Content Include="Views\ThongTinNguoiDung\Index.cshtml" />
     <Content Include="Views\ThongTinNguoiDung\Details.cshtml" />
+    <Content Include="Views\Home\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
+    <Folder Include="Content\Images\" />
     <Folder Include="Views\Job\" />
   </ItemGroup>
   <ItemGroup>
