@@ -18,3 +18,22 @@
     color: red;
     cursor: pointer;
 }
+
+
+.btn-outline-light {
+    color: #ffc107 !important; 
+    border-color: #212529 !important;
+}
+
+.bg-1 {
+    background-color: #664b67 !important;
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.navbar-brand { 
+    color: #fff !important; 
+}
+

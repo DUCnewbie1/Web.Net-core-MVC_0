@@ -13,16 +13,19 @@
     <button type="button" class="btn btn-outline-primary" onclick="window.location.href='@Url.Action("Create")'">Create New</button>
 </p>
 <style>
-    .table {
+    .table1 {
         width: 100%;
+        
     }
 
-        .table th,
-        .table td {
+        .table1 th,
+        .table1 td {
+            padding: -0.25rem !important;
             width: auto;
+            height: 100px;
         }
 </style>
-<table class="table table-striped">
+<table class="table1 table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.TieuDe)
@@ -75,11 +78,8 @@
             <td>
                 <button type="button" class="btn btn-outline-primary" onclick="window.location.href='@Url.Action("Edit", new { id = item.MaBaiDang })'">Edit</button>
                 <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='@Url.Action("Details", new { id = item.MaBaiDang })'">Details</button>
-
                 <button type="button" class="btn btn-outline-danger" onclick="window.location.href='@Url.Action("Delete", new { id = item.MaBaiDang })'">Delete</button>
-
             </td>
         </tr>
     }
-
 </table>

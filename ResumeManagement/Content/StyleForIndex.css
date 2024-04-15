@@ -1,4 +1,4 @@
-﻿body {
+﻿
     .btn-outline-primary
 
 {
@@ -35,4 +35,8 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+.table td {
+    padding: -0.25rem !important;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
 }

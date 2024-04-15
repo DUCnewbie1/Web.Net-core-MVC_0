@@ -10,7 +10,7 @@
     <link href="~/Content/CssForLogin.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-1 bg-1">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="~/Content/Images/logo.jpg" class="logo-img" alt="Application logo">
@@ -28,7 +28,7 @@
                     @if (Session["UserName"] != null)
                     {
                         <li class="nav-item ml-auto">@Html.ActionLink((string)Session["UserName"], "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("DangXuat", "DangXuat", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Logout", "DangXuat", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     }
                     else
                     {
