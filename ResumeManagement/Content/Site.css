@@ -1,0 +1,41 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+}
+
+    .navbar-nav .nav-item {
+        margin-right: 10px; /* Khoảng cách giữa các mục menu */
+    }
+
+        .navbar-nav .nav-item:last-child {
+            margin-right: 0; /* Không có khoảng cách bên phải cho phần tử cuối cùng */
+        }
+
+.ml-auto {
+    margin-left: auto; /* Đẩy các phần tử sang phải cùng cấp */
+}
+.navbar-brand img.logo-img {
+    width: 55px; /* Độ rộng của logo */
+    height: auto; /* Chiều cao tự động điều chỉnh theo tỷ lệ của logo */
+    margin-right: 10px; /* Khoảng cách giữa logo và chữ "Application name" */
+}
