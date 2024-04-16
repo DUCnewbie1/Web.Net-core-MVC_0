@@ -1,0 +1,90 @@
+﻿@model NoiThatViet_Nhom3.Models.TaiKhoan
+@{
+    ViewBag.Title = "XoaTaiKhoan";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout-admin.cshtml";
+}
+
+<h2>Xóa Tài Khoản</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal" style="margin-left:250px">
+        <dt>
+            id:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            Tên Đăng Nhập:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDangNhap)
+        </dd>
+
+        <dt>
+            Mật Khẩu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            IdTK:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTK)
+        </dd>
+
+        <dt>
+            Email:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongTinCaNhan.Email)
+        </dd>
+
+        <dt>
+            Địa Chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongTinCaNhan.DiaChi)
+        </dd>
+
+        <dt>
+            Số Điện Thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongTinCaNhan.Sdt)
+        </dd>
+        <dt>
+            Họ Tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongTinCaNhan.HoTen)
+        </dd>
+      
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:center">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Quay Về", "DanhSachTaiKhoan")
+        </div>
+    }
+</div>
+
+

@@ -54,7 +54,7 @@ namespace ResumeManagement.Models
         #endregion
 
         public MyDataDataContext() :
-                        base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QuanLyCVConnectionString"].ConnectionString, mappingSource)
+                base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QuanLyCVConnectionString"].ConnectionString, mappingSource)
         {
             OnCreated();
         }
@@ -1685,7 +1685,7 @@ namespace ResumeManagement.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhauHash", DbType="VarChar(25)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhauHash", DbType="VarChar(50)")]
 		public string MatKhauHash
 		{
 			get

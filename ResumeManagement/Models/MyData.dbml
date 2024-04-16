@@ -71,7 +71,7 @@
     <Type Name="TaiKhoan">
       <Column Name="MaTaiKhoan" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenDangNhap" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="MatKhauHash" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="MatKhauHash" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="LoaiTaiKhoan" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="MaCongTy" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaNguoiDung" Type="System.Int32" DbType="Int" CanBeNull="true" />

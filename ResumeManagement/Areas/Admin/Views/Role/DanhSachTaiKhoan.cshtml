@@ -1,0 +1,42 @@
+﻿@model List<NoiThatViet_Nhom3.Models.TaiKhoan>
+
+@{
+    ViewBag.Title = "DanhSachTaiKhoan";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout-admin.cshtml";
+}
+
+<h2>Danh sách tài khoản và thông tin người dùng</h2>
+@Html.ActionLink("Thêm mới người dùng", "ThemMoiUser")
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Tài khoản</th>
+                <th scope="col">Họ tên</th>
+                <th scope="col">Mật khẩu</th>
+                <th scope="col">Loại tài khoản</th>
+                <th scope="col">Địa chỉ</th>
+                <th scope="col">Email</th>
+                <th scope="col">Số điện thoại</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var taiKhoan in Model)
+            {
+                <tr>
+                    <td>@taiKhoan.TenDangNhap</td>
+                    <td>@taiKhoan.ThongTinCaNhan.HoTen</td>
+                    <td>@taiKhoan.MatKhau</td>
+                    <td>@taiKhoan.LoaiTK</td>
+                    <td>@taiKhoan.ThongTinCaNhan.DiaChi</td>
+                    <td>@taiKhoan.ThongTinCaNhan.Email</td>
+                    <td>@taiKhoan.ThongTinCaNhan.Sdt</td>
+        <td>
+            @Html.ActionLink("Sửa ", "SuaTaiKhoan", new { id = taiKhoan.id })
+            @Html.ActionLink("Xóa", "XoaTaiKhoan", new { id = taiKhoan.id })
+        </td>
+        </tr>
+    }
+            </tbody>
+            </table>
+        </div>

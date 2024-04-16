@@ -1,0 +1,84 @@
+﻿@model List<NoiThatViet_Nhom3.Models.SanPham>
+
+@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout-admin.cshtml";
+}
+<style>
+    .center-content {
+        margin: 0 auto;
+        width: 50%; /* hoặc kích thước phù hợp */
+    }
+</style>
+<h2>Danh Sách Sản Phẩm</h2>
+@Html.ActionLink("Thêm mới sản phẩm", "ThemMoi")
+
+@foreach (var sanPham in Model)
+{
+    <div>
+        <h2 style="text-align:center">Thông tin sản phẩm</h2>
+        <hr />
+        <dl class="dl-horizontal" style="margin-left:300px">
+
+            <dd>
+                <img src="@sanPham.HinhAnh" style="height:100px;width:100px;" />
+            </dd>
+            <dt>
+                Tên sản phẩm:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => sanPham.TenSanPham)
+            </dd>
+
+            <dt>
+                Vật Liệu:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => sanPham.VatLieu)
+            </dd>
+
+            <dt>
+                Kích Thước:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => sanPham.KichThuoc)
+            </dd>
+
+            <dt>
+                Giá:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => sanPham.Gia)
+            </dd>
+
+
+
+            <dt>
+                Mô tả:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => sanPham.MoTa)
+            </dd>
+            <dt>
+                Số Lượng:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => sanPham.SoLuongTon)
+            </dd>
+
+            <dt>
+                Mã Loại Sản Phẩm:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => sanPham.MaLoaiSP)
+            </dd>
+            <dd>
+                @Html.ActionLink("Sửa sản phẩm", "Sua", new { id = sanPham.MaSanPham.Trim() })
+                @Html.ActionLink("Xóa sản phẩm", "Xoa", new { id = sanPham.MaSanPham.Trim() })
+            </dd>
+
+        </dl>
+    </div>
+}
