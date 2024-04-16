@@ -54,7 +54,7 @@ namespace ResumeManagement.Models
         #endregion
 
         public MyDataDataContext() :
-                base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QuanLyCVConnectionString"].ConnectionString, mappingSource)
+                base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QuanLyCVConnectionString1"].ConnectionString, mappingSource)
         {
             OnCreated();
         }

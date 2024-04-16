@@ -1,0 +1,99 @@
+﻿@model ResumeManagement.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "DangNhap";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Content/JavaScriptForLogin.js"></script>
+</head>
+<body>
+    <section class="vh-100 gradient">
+        <div class="container py-4">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card">
+                        <div class="card-body p-4 text-center">
+
+                            <div class="mb-md-4 mt-md-3 pb-4">
+
+                                <h2 style="color: #5c2887;;" class="fw-bold mb-2 text-uppercase">Đăng Nhập</h2>
+                                <p style="color: #5c2887; #28a745;" class="text-50 mb-4">Vui lòng nhập tài khoản và mật khẩu</p>
+                                @using (Html.BeginForm())
+                                {
+
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+
+                                        @if (!string.IsNullOrEmpty(ViewBag.LoginFail))
+                                        {
+                                            <div class="alert alert-danger" style="margin-left:20px" role="alert">
+                                                @ViewBag.LoginFail
+                                            </div>
+                                        }
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @* Account *@
+                                        <div class="col-12 m-3">
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+
+                                                    <span class="input-group-text"><img style="height:18px;width:20px" src="~/Content/images/user.png" /></span>
+
+                                                </div>
+                                                @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control", id = "username", style = "margin-top:1px", placeholder = "Nhập Tài Khoản", required = "true" } })
+                                            </div>
+                                        </div>
+                                        @* Password *@
+                                        <div class="col-12 m-3">
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><img style="height:18px;width:20px" src="~/Content/images/password.png" /></span>
+                                                </div>
+
+                                                @Html.EditorFor(model => model.MatKhauHash, new { htmlAttributes = new { @class = "input form-control", id = "password", style = "margin-top:1px", placeholder = "Nhập Mật Khẩu", type = "password", value = "", required = "true" } })
+
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" onclick="password_show_hide();">
+                                                        <i class="" id="show_eye"><img style="height:18px;width:20px" src="~/Content/images/show.png" /></i>
+                                                        <i class="d-none" id="hide_eye"><img style="height:18px;width:20px" src="~/Content/images/hide.png" /></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @* quên mật khẩu *@
+
+                                        <div class="d-flex justify-content-between align-items-center" style="margin-left:40px">
+
+                                            <a style="margin-left: 170px; margin-bottom: 20px; color: #5c2887;" href="~/Home/LayLaiMatKhau" class="text-forgot">Quên mật khẩu?</a>
+                                        </div>
+                                        @* button đăng nhập *@
+
+                                        <button style="background-color: #ffffff;border-radius:40px;" class="btn-outline-light btn-lg px-4" type="submit">Đăng Nhập</button>
+                                    </div>
+                                }
+                                @* chưa có tài khoản đăng ký *@
+                                <div>
+                                    <p class="mb-0">
+                                        Bạn chưa có tài khoản? <a href="~/Home/DangKy" style="color: #5c2887" class="text-fw-bold">Đăng Ký</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

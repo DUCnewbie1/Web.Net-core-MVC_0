@@ -14,9 +14,9 @@ namespace ResumeManagement
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "TinTuyenDung", action = "Index", id = UrlParameter.Optional }
+                name: "QuanTriVienDefault",
+                url: "QuanTriVien/{controller}/{action}/{id}",
+                defaults: new { controller = "HomeAdmin", action = "DangNhap", id = UrlParameter.Optional }
             );
         }
     }
