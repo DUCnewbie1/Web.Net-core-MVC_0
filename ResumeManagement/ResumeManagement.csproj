@@ -134,11 +134,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\nhanVien\Controllers\DuyetBaiController.cs" />
+    <Compile Include="Areas\nhanVien\nhanVienAreaRegistration.cs" />
+    <Compile Include="Areas\NhaTuyenDung\Controllers\BaiDangController.cs" />
     <Compile Include="Areas\NhaTuyenDung\NhaTuyenDungAreaRegistration.cs" />
     <Compile Include="Areas\QuanTriVien\Controllers\HomeAdminController.cs" />
-    <Compile Include="Areas\QuanTriVien\Controllers\QuanLyCongTyController.cs" />
-    <Compile Include="Areas\QuanTriVien\Controllers\QuanLyNhanVienController.cs" />
     <Compile Include="Areas\QuanTriVien\QuanTriVienAreaRegistration.cs" />
+    <Compile Include="Areas\User\Controllers\TinTuyenDungController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
@@ -159,6 +161,45 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\NhaTuyenDung\Content\css\bootstrap-social.css" />
+    <Content Include="Areas\NhaTuyenDung\Content\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\NhaTuyenDung\Content\css\bootstrap.min.css" />
+    <Content Include="Areas\NhaTuyenDung\Content\css\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Areas\NhaTuyenDung\Content\css\dataTables\dataTables.responsive.css" />
+    <Content Include="Areas\NhaTuyenDung\Content\css\font-awesome.min.css" />
+    <Content Include="Areas\NhaTuyenDung\Content\css\metisMenu.min.css" />
+    <Content Include="Areas\NhaTuyenDung\Content\css\startmin.css" />
+    <Content Include="Areas\NhaTuyenDung\Content\css\timeline.css" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\bootstrap.min.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\dataTables\jquery.dataTables.min.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot-data.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\excanvas.min.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.colorhelpers.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.canvas.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.categories.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.crosshair.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.errorbars.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.image.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.navigate.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.pie.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.resize.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.selection.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.stack.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.symbol.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.threshold.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.time.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\jquery.min.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\metisMenu.min.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\morris-data.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\morris.min.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\raphael.min.js" />
+    <Content Include="Areas\NhaTuyenDung\Content\js\startmin.js" />
     <Content Include="Areas\QuanTriVien\Content\css\bootstrap-social.css" />
     <Content Include="Areas\QuanTriVien\Content\css\bootstrap-theme.min.css" />
     <Content Include="Areas\QuanTriVien\Content\css\bootstrap.min.css" />
@@ -249,6 +290,25 @@
     </Content>
     <Content Include="Areas\QuanTriVien\Views\HomeAdmin\IndexQLNV.cshtml" />
     <Content Include="Areas\QuanTriVien\Views\HomeAdmin\IndexCT.cshtml" />
+    <Content Include="Areas\User\Views\Shared\_LayoutForUser.cshtml" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\FontAwesome.otf" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\NhaTuyenDung\Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\NhaTuyenDung\Views\Shared\_LayoutNhaTuyenDung.cshtml" />
+    <Content Include="Areas\NhaTuyenDung\Views\BaiDang\DanhSach.cshtml" />
+    <Content Include="Areas\NhaTuyenDung\Views\BaiDang\Them.cshtml" />
+    <Content Include="Areas\NhaTuyenDung\Views\BaiDang\CapNhat.cshtml" />
+    <Content Include="Areas\NhaTuyenDung\Views\BaiDang\Xoa.cshtml" />
+    <Content Include="Areas\nhanVien\Views\web.config" />
+    <Content Include="Areas\nhanVien\Views\Shared\_LayoutNhanVien.cshtml" />
+    <Content Include="Areas\User\Views\TinTuyenDung\Index.cshtml" />
+    <Content Include="Areas\nhanVien\Views\DuyetBai\DanhSach.cshtml" />
     <None Include="Models\MyData.dbml.layout">
       <DependentUpon>MyData.dbml</DependentUpon>
     </None>
@@ -298,16 +358,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\NhaTuyenDung\Controllers\" />
+    <Folder Include="Areas\nhanVien\Data\" />
     <Folder Include="Areas\NhaTuyenDung\Data\" />
-    <Folder Include="Areas\NhaTuyenDung\Views\Shared\" />
     <Folder Include="Areas\QuanTriVien\Data\" />
     <Folder Include="Areas\QuanTriVien\Views\Home\" />
     <Folder Include="Areas\QuanTriVien\Views\QuanLyCongTy\" />
     <Folder Include="Areas\QuanTriVien\Views\QuanLyNhanVien\" />
-    <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Areas\User\Data\" />
-    <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Content\Images\" />
     <Folder Include="Views\Job\" />
   </ItemGroup>

@@ -28,38 +28,75 @@ namespace ResumeManagement.Areas.QuanTriVien.Controllers
         }
 
         [HttpPost]
-        public ActionResult DangNhap(TaiKhoan user)
+        public ActionResult DangNhap(TaiKhoan user, string accountType)
         {
             var taikhoanForm = user.TenDangNhap;
             var matkhauForm = MaHoaPassword.GetMd5Hash(user.MatKhauHash);
 
-            // Kiểm tra thông tin đăng nhập
-            var UserCheck = Data.TaiKhoans.SingleOrDefault(u => u.TenDangNhap.Equals(taikhoanForm) && u.MatKhauHash.Equals(matkhauForm));
-            if (UserCheck != null)
+            switch (accountType)
             {
-                // Kiểm tra xác nhận email
-                var NguoiDung = Data.NguoiDungs.FirstOrDefault(t => t.MaNguoiDung == UserCheck.MaNguoiDung);
-                if (NguoiDung != null && NguoiDung.IsEmailConfirmed == true)
-                {
-                    // Lưu thông tin tài khoản vào Session
-                    Session["TaiKhoan"] = UserCheck;
-                    Session["UserId"] = UserCheck.MaTaiKhoan;
-                    Session["UserName"] = NguoiDung.Ten;
-                    return RedirectToAction("Index", "HomeAdmin");
-                }
-                else
-                {
-                    // Đăng nhập thất bại vì email chưa được xác nhận
-                    ViewBag.LoginFail = "Tài khoản chưa được xác nhận qua email.";
-                    return View("DangNhap");
-                }
+                case "admin":
+                    // Kiểm tra thông tin đăng nhập cho QUẢN TRỊ VIÊN-----------------------------------------------------------------------------------
+                    var AdminCheck = Data.TaiKhoans.SingleOrDefault(u => u.TenDangNhap.Equals(taikhoanForm) && u.MatKhauHash.Equals(matkhauForm));
+                    if (AdminCheck != null)
+                    {
+                        var quantrivien = Data.QuanTriViens.FirstOrDefault(t => t.MaQuanTriVien == AdminCheck.MaQuanTriVien);
+                        if (quantrivien != null)
+                        {
+                            // Lưu thông tin tài khoản vào Session
+                            Session["TaiKhoan"] = AdminCheck;
+                            Session["UserId"] = AdminCheck.MaTaiKhoan;
+                            Session["UserName"] = quantrivien.Ten;
+                            return RedirectToAction("Index", "HomeAdmin");
+                        }
+                    }
+                    break;
+                case "employer":
+                    // Kiểm tra thông tin đăng nhập cho NHÀ TUYỂN DỤNG-----------------------------------------------------------------------------------
+                    var CongTyCheck = Data.TaiKhoans.SingleOrDefault(u => u.TenDangNhap.Equals(taikhoanForm) && u.MatKhauHash.Equals(matkhauForm));
+                    if (CongTyCheck != null)
+                    {
+                        // Lưu thông tin tài khoản vào Session
+                        Session["TaiKhoan"] = CongTyCheck;
+                        Session["UserId"] = CongTyCheck.MaTaiKhoan;
+                        Session["UserName"] = CongTyCheck.MaCongTy;
+                        return RedirectToAction("DanhSach", "BaiDang", new { area = "NhaTuyenDung" });
+                    }
+                    break;
+                // Thêm các trường hợp khác nếu cần
+                case "employee":
+                    // Kiểm tra thông tin đăng nhập cho NHÂN VIÊN-----------------------------------------------------------------------------------
+                    var NhanVienCheck = Data.TaiKhoans.SingleOrDefault(u => u.TenDangNhap.Equals(taikhoanForm) && u.MatKhauHash.Equals(matkhauForm));
+                    if (NhanVienCheck != null)
+                    {
+                        // Lưu thông tin tài khoản vào Session
+                        Session["TaiKhoan"] = NhanVienCheck;
+                        Session["UserId"] = NhanVienCheck.MaTaiKhoan;
+                        Session["UserName"] = NhanVienCheck.MaNhanVien;
+                        return RedirectToAction("DanhSach", "DuyetBai", new { area = "nhanVien" });
+                    }
+                    break;
+                // Kiểm tra thông tin đăng nhập cho NGƯỜI DÙNG-----------------------------------------------------------------------------------
+                case "user":
+                    // Kiểm tra thông tin đăng nhập cho NHÂN VIÊN-----------------------------------------------------------------------------------
+                    var UserCheck = Data.TaiKhoans.SingleOrDefault(u => u.TenDangNhap.Equals(taikhoanForm) && u.MatKhauHash.Equals(matkhauForm));
+                    if (UserCheck != null)
+                    {
+                        // Lưu thông tin tài khoản vào Session
+                        Session["TaiKhoan"] = UserCheck;
+                        Session["UserId"] = UserCheck.MaTaiKhoan;
+                        Session["UserName"] = UserCheck.MaNguoiDung;
+                        return RedirectToAction("Index", "TinTuyenDung", new { area = "User" });
+                    }
+                    break;
+
             }
-            else
-            {
-                ViewBag.LoginFail = "Tài khoản hoặc mật khẩu không chính xác.";
-                return View("DangNhap");
-            }
+
+            // Trường hợp đăng nhập không thành công
+            ViewBag.LoginFail = "Tài khoản hoặc mật khẩu không chính xác.";
+            return View("DangNhap");
         }
+
 
         //tạo otp
         private string GenerateOTP()

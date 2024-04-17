@@ -25,10 +25,10 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Find a Jobs", "Find a Jobs", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Page", "Page", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    @if (Session["UserName"] != null)
+                    @if (Session["user"] != null)
                     {
-                        <li class="nav-item ml-auto">@Html.ActionLink((string)Session["UserName"], "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("Logout", "DangXuat", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item ml-auto">@Html.ActionLink((string)Session["user"], "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Logout", "DangXuat", "DangNhap", new { area = "HomeAdmin" }, new { @class = "nav-link" })</li>
                     }
                     else
                     {

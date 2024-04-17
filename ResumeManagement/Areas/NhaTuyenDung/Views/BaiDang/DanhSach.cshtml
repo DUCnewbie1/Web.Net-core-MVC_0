@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ResumeManagement.Models.BaiDangTuyenDung>
+
+@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Areas/NhaTuyenDung/Views/Shared/_LayoutNhaTuyenDung.cshtml";
+}
+
+<h2>DanhSach</h2>
+
+<style>
+    .center-content {
+        margin: 0 auto;
+        width: 50%; /* hoặc kích thước phù hợp */
+    }
+</style>
+<h2>Danh Sách Tuyển dụng</h2>
+@Html.ActionLink("Thêm Mới Bài Đăng", "Them")
+<h2 style="text-align:center">Thông tin Bài Đăng</h2>
+@foreach (var BaiDang in Model)
+{
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal" style="margin-left:300px">
+
+            <dt>
+                Tiêu đề:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => BaiDang.TieuDe)
+            </dd>
+
+            <dt>
+                Mô tả
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => BaiDang.MoTa)
+            </dd>
+
+            <dt>
+                Ngày tạo
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => BaiDang.NgayTao)
+            </dd>
+
+            <dt>
+                Số điện thoại
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => BaiDang.SoDienThoai)
+            </dd>
+
+            <dt>
+                Loại công việc
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => BaiDang.LoaiCongViec)
+            </dd>
+            <dt>
+                Mã công ty
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => BaiDang.MaCongTy)
+            </dd>
+
+            <dd>
+                <div style="display: flex; justify-content: center;">
+                    @Html.ActionLink("Cập Nhật", "CapNhat", new { id = BaiDang.MaBaiDang }, new { @class = "btn btn-primary", style = "margin-right: 5px;" })
+                    @Html.ActionLink("Xóa", "Xoa", new { id = BaiDang.MaBaiDang }, new { @class = "btn btn-danger", style = "margin-left: 5px;" })
+                </div>
+            </dd>
+
+        </dl>
+    </div>
+}

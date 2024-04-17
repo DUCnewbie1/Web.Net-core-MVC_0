@@ -31,53 +31,70 @@
 
                                     @Html.AntiForgeryToken()
 
-                                    <div class="form-horizontal">
+                            <div class="form-horizontal">
 
-                                        @if (!string.IsNullOrEmpty(ViewBag.LoginFail))
-                                        {
-                                            <div class="alert alert-danger" style="margin-left:20px" role="alert">
-                                                @ViewBag.LoginFail
-                                            </div>
-                                        }
-                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                        @* Account *@
-                                        <div class="col-12 m-3">
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-
-                                                    <span class="input-group-text"><img style="height:18px;width:20px" src="~/Content/images/user.png" /></span>
-
-                                                </div>
-                                                @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control", id = "username", style = "margin-top:1px", placeholder = "Nhập Tài Khoản", required = "true" } })
-                                            </div>
-                                        </div>
-                                        @* Password *@
-                                        <div class="col-12 m-3">
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><img style="height:18px;width:20px" src="~/Content/images/password.png" /></span>
-                                                </div>
-
-                                                @Html.EditorFor(model => model.MatKhauHash, new { htmlAttributes = new { @class = "input form-control", id = "password", style = "margin-top:1px", placeholder = "Nhập Mật Khẩu", type = "password", value = "", required = "true" } })
-
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text" onclick="password_show_hide();">
-                                                        <i class="" id="show_eye"><img style="height:18px;width:20px" src="~/Content/images/show.png" /></i>
-                                                        <i class="d-none" id="hide_eye"><img style="height:18px;width:20px" src="~/Content/images/hide.png" /></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @* quên mật khẩu *@
-
-                                        <div class="d-flex justify-content-between align-items-center" style="margin-left:40px">
-
-                                            <a style="margin-left: 170px; margin-bottom: 20px; color: #5c2887;" href="~/Home/LayLaiMatKhau" class="text-forgot">Quên mật khẩu?</a>
-                                        </div>
-                                        @* button đăng nhập *@
-
-                                        <button style="background-color: #ffffff;border-radius:40px;" class="btn-outline-light btn-lg px-4" type="submit">Đăng Nhập</button>
+                                @if (!string.IsNullOrEmpty(ViewBag.LoginFail))
+                                {
+                                    <div class="alert alert-danger" style="margin-left:20px" role="alert">
+                                        @ViewBag.LoginFail
                                     </div>
+                                }
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @* Account *@
+                                <div class="col-12 m-3">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+
+                                            <span class="input-group-text"><img style="height:18px;width:20px" src="~/Content/images/user.png" /></span>
+
+                                        </div>
+                                        @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control", id = "username", style = "margin-top:1px", placeholder = "Nhập Tài Khoản", required = "true" } })
+                                    </div>
+                                </div>
+                                @* Password *@
+                                <div class="col-12 m-3">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img style="height:18px;width:20px" src="~/Content/images/password.png" /></span>
+                                        </div>
+
+                                        @Html.EditorFor(model => model.MatKhauHash, new { htmlAttributes = new { @class = "input form-control", id = "password", style = "margin-top:1px", placeholder = "Nhập Mật Khẩu", type = "password", value = "", required = "true" } })
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" onclick="password_show_hide();">
+                                                <i class="" id="show_eye"><img style="height:18px;width:20px" src="~/Content/images/show.png" /></i>
+                                                <i class="d-none" id="hide_eye"><img style="height:18px;width:20px" src="~/Content/images/hide.png" /></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* quên mật khẩu *@
+
+                                <div class="d-flex justify-content-between align-items-center" style="margin-left:40px">
+
+                                    <a style="margin-left: 170px; margin-bottom: 20px; color: #5c2887;" href="~/Home/LayLaiMatKhau" class="text-forgot">Quên mật khẩu?</a>
+                                </div>
+                                @*dropdown chọn loại tài khoàn => MỤC ĐÍCH ĐỂ ĐIỀU HƯỚNG ĐẾN TRANG CỦA ĐÚNG ROLE MONG MUỐN*@
+                                <div class="col-12 m-3">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img style="height:18px;width:20px" src="~/Content/images/account-type.png" /></span>
+                                        </div>
+                                        <select class="form-control" id="accountType" name="accountType">
+                                            <option value="admin">Quản trị viên</option>
+                                            <option value="employer">Nhà tuyển dụng</option>
+                                            <option value="employee">Nhân viên</option>
+                                            <option value="user">Người dùng</option>
+                                            <!-- Thêm các lựa chọn khác nếu cần -->
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                @* button đăng nhập *@
+
+                                <button style="background-color: #ffffff;border-radius:40px;" class="btn-outline-light btn-lg px-4" type="submit">Đăng Nhập</button>
+                            </div>
                                 }
                                 @* chưa có tài khoản đăng ký *@
                                 <div>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ResumeManagement.Models.BaiDangTuyenDung>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_LayoutForUser.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaCongTy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNhanVien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayTao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoDienThoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiCongViec)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TieuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaCongTy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNhanVien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayTao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoDienThoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiCongViec)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaBaiDang }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaBaiDang }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaBaiDang })
+        </td>
+    </tr>
+}
+
+</table>
