@@ -142,11 +142,7 @@
     <Compile Include="Areas\QuanTriVien\QuanTriVienAreaRegistration.cs" />
     <Compile Include="Areas\User\Controllers\TinTuyenDungController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NhanVienController.cs" />
-    <Compile Include="Controllers\NhaTuyenDungController.cs" />
-    <Compile Include="Controllers\ThongTinNguoiDungController.cs" />
-    <Compile Include="Controllers\TinTuyenDungController.cs" />
+    <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,6 +254,7 @@
     <Content Include="Content\CssForLogin.css" />
     <Content Include="Content\JavaScriptForLogin.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\StyleForDSJobSheet1.css" />
     <Content Include="Content\StyleForIndex.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -282,7 +279,6 @@
     <Content Include="Areas\QuanTriVien\Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Areas\QuanTriVien\Views\Shared\_LayoutQuanTriVien.cshtml" />
     <Content Include="Areas\QuanTriVien\Views\HomeAdmin\Index.cshtml" />
-    <Content Include="Areas\QuanTriVien\Views\HomeAdmin\DangNhap.cshtml" />
     <Content Include="Models\MyData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>MyData.designer.cs</LastGenOutput>
@@ -309,6 +305,10 @@
     <Content Include="Areas\nhanVien\Views\Shared\_LayoutNhanVien.cshtml" />
     <Content Include="Areas\User\Views\TinTuyenDung\Index.cshtml" />
     <Content Include="Areas\nhanVien\Views\DuyetBai\DanhSach.cshtml" />
+    <Content Include="Areas\User\Views\TinTuyenDung\Details.cshtml" />
+    <Content Include="Areas\QuanTriVien\Views\HomeAdmin\DetailsQLNV.cshtml" />
+    <Content Include="Areas\QuanTriVien\Views\HomeAdmin\CreateQLNV.cshtml" />
+    <Content Include="Areas\QuanTriVien\Views\HomeAdmin\EditQLNV.cshtml" />
     <None Include="Models\MyData.dbml.layout">
       <DependentUpon>MyData.dbml</DependentUpon>
     </None>
@@ -334,27 +334,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\NhanVien\Create.cshtml" />
-    <Content Include="Views\NhanVien\Index.cshtml" />
-    <Content Include="Views\NhanVien\Details.cshtml" />
-    <Content Include="Views\NhanVien\Edit.cshtml" />
-    <Content Include="Views\NhanVien\Delete.cshtml" />
-    <Content Include="Views\NhaTuyenDung\Index.cshtml" />
-    <Content Include="Views\NhaTuyenDung\Details.cshtml" />
-    <Content Include="Views\NhaTuyenDung\Create.cshtml" />
-    <Content Include="Views\NhaTuyenDung\Edit.cshtml" />
-    <Content Include="Views\NhaTuyenDung\Delete.cshtml" />
-    <Content Include="Views\TinTuyenDung\Index.cshtml" />
-    <Content Include="Views\TinTuyenDung\Details.cshtml" />
-    <Content Include="Views\TinTuyenDung\Create.cshtml" />
-    <Content Include="Views\TinTuyenDung\Edit.cshtml" />
-    <Content Include="Views\TinTuyenDung\Delete.cshtml" />
-    <Content Include="Views\ThongTinNguoiDung\Index.cshtml" />
-    <Content Include="Views\ThongTinNguoiDung\Details.cshtml" />
-    <Content Include="Views\Home\DangNhap.cshtml" />
+    <Content Include="Views\DangNhap\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -362,11 +342,10 @@
     <Folder Include="Areas\NhaTuyenDung\Data\" />
     <Folder Include="Areas\QuanTriVien\Data\" />
     <Folder Include="Areas\QuanTriVien\Views\Home\" />
-    <Folder Include="Areas\QuanTriVien\Views\QuanLyCongTy\" />
-    <Folder Include="Areas\QuanTriVien\Views\QuanLyNhanVien\" />
     <Folder Include="Areas\User\Data\" />
     <Folder Include="Content\Images\" />
-    <Folder Include="Views\Job\" />
+    <Folder Include="Views\ThongTinNguoiDung\" />
+    <Folder Include="Views\TinTuyenDung\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

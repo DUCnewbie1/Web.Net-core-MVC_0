@@ -25,7 +25,7 @@ namespace ResumeManagement.Areas.User.Controllers
             var D_td = data.BaiDangTuyenDungs.Where(m => m.MaBaiDang == id).First();
             return View(D_td);
         }
-        //------------Create-------------------------------
+       /* //------------Create-------------------------------
         public ActionResult Create()
         {
             return View();
@@ -86,7 +86,7 @@ namespace ResumeManagement.Areas.User.Controllers
             data.BaiDangTuyenDungs.DeleteOnSubmit(D_td);
             data.SubmitChanges();
             return RedirectToAction("Index");
-        }
+        }*/
         //-----------------Đăng xuất người dùng----------------------------------------
         public ActionResult DangXuat()
         {
